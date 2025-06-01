@@ -9,20 +9,20 @@ const anotherElement = (
 
 const anotherUser = "Learn React Series"
 
-const reactElement = React.createElement(
-    'a',
-    {href:'https://google.com', target:'_blank' },
-    'click me to visit google',
-    anotherUser
-)
+// const reactElement = React.createElement(
+//     'a',
+//     {href:'https://google.com', target:'_blank' },
+//     'click me to visit google',
+//     anotherUser
+// )
 
 createRoot(document.getElementById('root')).render(
-  // <StrictMode>
-  //   <App />
+  <StrictMode>
+    <App />
   
-  // </StrictMode>,
+  </StrictMode>,
 
-  reactElement
+  // reactElement
 
 )
   

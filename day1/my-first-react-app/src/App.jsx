@@ -1,14 +1,11 @@
-import Head from './Head.jsx'
+import Message from "./Message"
 
 function App() {
-  const username = "50DaysOfReact Series"
-
   return (
     <>
-      <Head />
-      <h1>{username} | Manisha</h1>
+      <Message />
     </>
   )
 }
 
-export default App
+export default App;
