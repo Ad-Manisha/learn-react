@@ -19,7 +19,7 @@ function App() {
     <>
       <div className="app-container">
         <div className="card">
-          <h1>React Counter</h1>
+             <h1>React Counter</h1>
           <h2>Counter Value : <span className="value">{counter}</span></h2>
           <div className="button-group">
             <button onClick={addValue} className="add-btn">Add Value</button>
