@@ -33,7 +33,6 @@ function PasswordGen() {
 
   return (
     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4 flex justify-center">
-      {/* Centered absolutely */}
       <div className="w-full max-w-lg bg-slate-800 border border-slate-700 shadow-xl rounded-2xl p-6">
         <h1 className="text-2xl font-bold text-white text-center mb-6">
           🔐 Password Generator

@@ -1,13 +1,15 @@
-import me from "../assets/me2.jpg";
+import me from "../assets/me4.jpg";
 import { useState } from "react";
 
-const Navbar = () => {
+const NavBar = () => {
   const [activeTab, setActiveTab] = useState("Challenges");
 
   return (
     <nav className="bg-slate-900 shadow-md sticky top-0 z-50">
+      {/* ✨ Enhanced background from gray-900 to slate-900 */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
+          {/* Left section */}
           <div className="flex items-center gap-4">
             <span className="text-xl sm:text-2xl font-bold text-purple-300">
               #50DaysOfReact
@@ -31,6 +33,7 @@ const Navbar = () => {
             </div>
           </div>
 
+          {/* Right section */}
           <div className="flex items-center gap-4">
             <button className="text-slate-400 hover:text-blue-400 transition-colors duration-200">
               <svg
@@ -59,4 +62,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavBar;
