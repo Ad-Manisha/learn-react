@@ -37,8 +37,6 @@ function App() {
       }}
     >
       <NavBar />
-
-      {/* Overlay to dim background for readability */}
       <div className="flex-grow bg-black bg-opacity-60 flex items-center justify-center px-6 py-12">
         <div className="max-w-lg w-full bg-white bg-opacity-20 backdrop-blur-md rounded-3xl p-10 shadow-xl border border-white/30">
           <form
