@@ -1,38 +1,22 @@
-import me from "../assets/me4.jpg";
 import { useState } from "react";
+import me from "../assets/me4.jpg";
+import logo from "../assets/logo.png";
 
-const NavBar = () => {
-  const [activeTab, setActiveTab] = useState("Challenges");
+export default function NavBar() {
+  const [activeTab, setActiveTab] = useState("Home");
+
+  const tabs = ["Home", "Challenges", "Projects", "GitHub"];
 
   return (
-    <nav className="bg-slate-900 shadow-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
-          <div className="flex items-center gap-4">
-            <span className="text-xl sm:text-2xl font-bold text-purple-300">
-              #50DaysOfReact
-            </span>
+    <header className="shadow sticky z-50 top-0 bg-white">
+      <nav className="border-gray-200 px-4 lg:px-6 py-2.5">
+        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+          <a href="#" className="flex items-center space-x-3">
+            <img src={logo} className="h-14 w-30 mr-3" alt="Logo" />
+          </a>
 
-            <div className="hidden sm:flex gap-6 ml-8">
-              {["Home", "Challenges", "Projects", "GitHub"].map((tab) => (
-                <a
-                  key={tab}
-                  href="#"
-                  onClick={() => setActiveTab(tab)}
-                  className={`transition-all duration-200 ${
-                    activeTab === tab
-                      ? "text-white border-b-2 border-blue-500 pb-1 font-semibold"
-                      : "text-slate-400 hover:text-blue-400"
-                  }`}
-                >
-                  {tab}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <button className="text-slate-400 hover:text-blue-400 transition-colors duration-200">
+          <div className="flex items-center gap-4 lg:order-2">
+            <button className="text-slate-500 hover:text-blue-500 transition-colors duration-200">
               <svg
                 className="w-6 h-6"
                 fill="none"
@@ -53,10 +37,28 @@ const NavBar = () => {
               className="w-9 h-9 rounded-full border border-slate-700"
             />
           </div>
-        </div>
-      </div>
-    </nav>
-  );
-};
 
-export default NavBar;
+          <div className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1">
+            <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+              {tabs.map((tab) => (
+                <li key={tab}>
+                  <a
+                    href="#"
+                    onClick={() => setActiveTab(tab)}
+                    className={`block py-2 pr-4 pl-3 transition-all duration-200 border-b lg:border-0 ${
+                      activeTab === tab
+                        ? "text-blue-600 font-semibold border-blue-600"
+                        : "text-gray-600 hover:text-blue-500 hover:border-blue-300"
+                    }`}
+                  >
+                    {tab}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+  );
+}
