@@ -16,40 +16,44 @@ function TodoItem({ todo }) {
 
   return (
     <div
-      className={`flex border border-black/10 rounded-lg px-3 py-1.5 gap-x-3 shadow-sm shadow-white/50 duration-300  text-black ${
-        todo.completed ? "bg-[#c6e9a7]" : "bg-[#ccbed7]"
+      className={`flex items-center gap-x-4 p-4 rounded-2xl shadow-md transition-all duration-300 ${
+        todo.completed ? "bg-lime-100" : "bg-purple-100"
       }`}
     >
       <input
         type="checkbox"
-        className="cursor-pointer"
+        className="w-5 h-5 accent-indigo-500 cursor-pointer"
         checked={todo.completed}
         onChange={toggleCompleted}
       />
+
       <input
         type="text"
-        className={`border outline-none w-full bg-transparent rounded-lg ${
-          isTodoEditable ? "border-black/10 px-2" : "border-transparent"
-        } ${todo.completed ? "line-through" : ""}`}
+        className={`flex-grow text-base sm:text-lg font-medium bg-transparent outline-none transition-all px-2 py-1 rounded-md ${
+          isTodoEditable
+            ? "border border-indigo-200 bg-white/70"
+            : "border-none"
+        } ${todo.completed ? "line-through text-gray-500" : "text-gray-800"}`}
         value={todoMsg}
         onChange={(e) => setTodoMsg(e.target.value)}
         readOnly={!isTodoEditable}
       />
+
       <button
-        className="inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100 shrink-0 disabled:opacity-50"
+        className="w-9 h-9 flex items-center justify-center text-lg rounded-md bg-white hover:bg-indigo-100 border border-indigo-200 transition disabled:opacity-50"
         onClick={() => {
           if (todo.completed) return;
-
           if (isTodoEditable) {
             editTodo();
           } else setIsTodoEditable((prev) => !prev);
         }}
         disabled={todo.completed}
       >
-        {isTodoEditable ? "📁" : "✏️"}
+        {isTodoEditable ? "✅" : "✏️"}
       </button>
+
       <button
-        className="inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100 shrink-0"
+        className="w-9 h-9 flex items-center justify-center text-lg rounded-md bg-white hover:bg-red-100 border border-red-200 transition"
         onClick={() => deleteTodo(todo.id)}
       >
         ❌

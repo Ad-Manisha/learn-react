@@ -47,19 +47,27 @@ function App() {
     <TodoProvider
       value={{ todos, addTodo, updateTodo, deleteTodo, toggleComplete }}
     >
-      <div className="min-h-screen bg-gradient-to-br from-indigo-100 to-rose-100 transition-colors duration-700">
-        <NavBar />
-        <div className="min-h-screen py-8">
-          <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-indigo-700">
-            <h1 className="text-2xl font-bold text-center mb-8 mt-2">
-              Manage Your Todos
+      <NavBar />
+      <div className="min-h-screen bg-gradient-to-br from-indigo-200 via-rose-100 to-pink-200 px-4 transition-colors duration-700">
+        <div className="py-16">
+          <div className="w-full max-w-3xl mx-auto bg-white/70 backdrop-blur-xl shadow-2xl rounded-3xl px-8 py-10 text-indigo-800">
+            <h1
+              className="text-4xl font-extrabold text-center mb-12"
+              style={{ wordSpacing: "0.6rem" }}
+            >
+              Today's Todo List
             </h1>
-            <div className="mb-4">
-              <TodoForm />{" "}
+
+            <div className="mb-8">
+              <TodoForm />
             </div>
-            <div className="flex flex-wrap gap-y-3">
+
+            <div className="space-y-5">
               {todos.map((todo) => (
-                <div key={todo.id} className="w-full">
+                <div
+                  key={todo.id}
+                  className="transition transform hover:scale-[1.01]"
+                >
                   <TodoItem todo={todo} />
                 </div>
               ))}

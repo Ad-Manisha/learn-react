@@ -3,14 +3,14 @@ import me from "../assets/me4.jpg";
 import logo from "../assets/logo.png";
 
 export default function NavBar() {
-  const [activeTab, setActiveTab] = useState("Home");
+  const [activeTab, setActiveTab] = useState("Projects");
 
   const tabs = ["Home", "Challenges", "Projects", "GitHub"];
 
   return (
     <header className="shadow sticky z-50 top-0 bg-white">
-      <nav className="border-gray-200 px-4 lg:px-6 py-2.5">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+      <nav className="border-gray-200 px-0 lg:px-0 py-2.5">
+        <div className="flex flex-wrap justify-between items-center w-full px-4">
           <a href="#" className="flex items-center space-x-3">
             <img src={logo} className="h-14 w-30 mr-3" alt="Logo" />
           </a>
