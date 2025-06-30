@@ -27,42 +27,51 @@ function Signup() {
   };
 
   return (
-    <div className="flex items-center justify-center">
-      <div
-        className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}
-      >
-        <div className="mb-2 flex justify-center">
-          <span className="inline-block w-full max-w-[100px]">
-            <Logo width="100%" />
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-100 via-indigo-100 to-indigo-200 px-4">
+      <div className="mx-auto w-full max-w-lg bg-white/90 backdrop-blur-sm rounded-2xl p-10 border border-indigo-200 shadow-2xl">
+        {/* Logo */}
+        <div className="mb-4 flex justify-center">
+          <span className="text-3xl sm:text-2xl font-semibold tracking-wide hidden sm:inline font-playfair">
+            <span className="text-blue-800">Post</span>
+            <span className="text-yellow-400">Script</span>
           </span>
         </div>
-        <h2 className="text-center text-2xl font-bold leading-tight">
+
+        {/* Heading */}
+        <h2 className="text-center text-3xl font-extrabold text-indigo-700">
           Sign up to create account
         </h2>
-        <p className="mt-2 text-center text-base text-black/60">
+
+        {/* Subtext */}
+        <p className="mt-2 text-center text-base text-indigo-500">
           Already have an account?&nbsp;
           <Link
             to="/login"
-            className="font-medium text-primary transition-all duration-200 hover:underline"
+            className="font-semibold text-indigo-600 hover:underline transition duration-200"
           >
             Sign In
           </Link>
         </p>
-        {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
 
-        <form onSubmit={handleSubmit(create)}>
+        {/* Error message */}
+        {error && (
+          <p className="text-red-600 mt-6 text-center font-medium">{error}</p>
+        )}
+
+        {/* Form */}
+        <form onSubmit={handleSubmit(create)} className="mt-8">
           <div className="space-y-5">
             <Input
-              label="Full Name: "
+              label="Full Name:"
               placeholder="Enter your full name"
-              {...register("name", {
-                required: true,
-              })}
+              className="w-full px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 text-gray-800"
+              {...register("name", { required: true })}
             />
             <Input
-              label="Email: "
+              label="Email:"
               placeholder="Enter your email"
               type="email"
+              className="w-full px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 text-gray-800"
               {...register("email", {
                 required: true,
                 validate: {
@@ -73,14 +82,16 @@ function Signup() {
               })}
             />
             <Input
-              label="Password: "
+              label="Password:"
               type="password"
               placeholder="Enter your password"
-              {...register("password", {
-                required: true,
-              })}
+              className="w-full px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 text-gray-800"
+              {...register("password", { required: true })}
             />
-            <Button type="submit" className="w-full">
+            <Button
+              type="submit"
+              className="w-full py-2 bg-gradient-to-r from-indigo-600 to-pink-500 text-white font-semibold rounded-md shadow-md hover:brightness-110 transition-all duration-200"
+            >
               Create Account
             </Button>
           </div>

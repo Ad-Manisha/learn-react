@@ -21,19 +21,32 @@ function App() {
         }
       })
       .finally(() => setLoading(false));
-  }, []);
+  }, [dispatch]);
 
   return !loading ? (
-    <div className="min-h-screen flex flex-wrap content-between bg-gray-400">
-      <div className="w-full block">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-pink-100 via-indigo-100 to-indigo-200 text-indigo-900">
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-md">
         <Header />
-        <main>
-          TODO: <Outlet />
-        </main>
+      </header>
+
+      {/* Main Content */}
+      <main className="flex-grow px-4 sm:px-6 md:px-8 py-8 overflow-auto">
+        <Outlet />
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-indigo-100 text-indigo-700 py-6 shadow-inner">
         <Footer />
-      </div>
+      </footer>
     </div>
-  ) : null;
+  ) : (
+    <div className="flex items-center justify-center min-h-screen bg-indigo-50">
+      <span className="text-indigo-500 text-lg font-semibold animate-pulse">
+        Loading...
+      </span>
+    </div>
+  );
 }
 
 export default App;

@@ -4,136 +4,121 @@ import Logo from "../Logo";
 
 function Footer() {
   return (
-    <section className="relative overflow-hidden py-10 bg-gray-400 border border-t-2 border-t-black">
-      <div className="relative z-10 mx-auto max-w-7xl px-4">
-        <div className="-m-6 flex flex-wrap">
-          <div className="w-full p-6 md:w-1/2 lg:w-5/12">
-            <div className="flex h-full flex-col justify-between">
-              <div className="mb-4 inline-flex items-center">
-                <Logo width="100px" />
-              </div>
-              <div>
-                <p className="text-sm text-gray-600">
-                  &copy; Copyright 2023. All Rights Reserved by DevUI.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="w-full p-6 md:w-1/2 lg:w-2/12">
-            <div className="h-full">
-              <h3 className="tracking-px mb-9  text-xs font-semibold uppercase text-gray-500">
-                Company
-              </h3>
-              <ul>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Features
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Pricing
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Affiliate Program
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Press Kit
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="w-full p-6 md:w-1/2 lg:w-2/12">
-            <div className="h-full">
-              <h3 className="tracking-px mb-9  text-xs font-semibold uppercase text-gray-500">
-                Support
-              </h3>
-              <ul>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Account
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Help
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Contact Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Customer Support
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="w-full p-6 md:w-1/2 lg:w-3/12">
-            <div className="h-full">
-              <h3 className="tracking-px mb-9  text-xs font-semibold uppercase text-gray-500">
-                Legals
-              </h3>
-              <ul>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Terms &amp; Conditions
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Licensing
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
+    <section className="w-full bg-gradient-to-br from-indigo-500 via-pink-150 to-purple-300 text-white px-6 py-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        {/* Logo + Copyright */}
+        <div>
+          <span className="text-3xl sm:text-4xl font-semibold tracking-wide hidden sm:inline font-playfair">
+            <span className="text-white">Post</span>
+            <span className="text-yellow-400">Script</span>
+          </span>
+          <p className="text-sm text-white/80">
+            &copy; {new Date().getFullYear()} PostScript. All rights reserved.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-semibold uppercase mb-4 tracking-wider text-yellow-400">
+            Explore
+          </h3>
+          <ul className="space-y-2">
+            <li>
+              <Link
+                to="/"
+                className="no-underline hover:text-purple-900 transition-colors duration-200"
+              >
+                Latest Posts
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                className="no-underline hover:text-purple-900 transition-colors duration-200"
+              >
+                Popular Posts
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                className="no-underline hover:text-purple-900 transition-colors duration-200"
+              >
+                Categories
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                className="no-underline hover:text-purple-900 transition-colors duration-200"
+              >
+                Tags
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-semibold uppercase mb-4 tracking-wider text-yellow-400">
+            About
+          </h3>
+          <ul className="space-y-2">
+            <li>
+              <Link
+                to="/"
+                className="no-underline hover:text-purple-900 transition-colors duration-200"
+              >
+                About PostScript
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                className="no-underline hover:text-purple-900 transition-colors duration-200"
+              >
+                Blog Philosophy
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                className="no-underline hover:text-purple-900 transition-colors duration-200"
+              >
+                Feedback
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-semibold uppercase mb-4 tracking-wider text-yellow-400">
+            Community
+          </h3>
+          <ul className="space-y-2">
+            <li>
+              <Link
+                to="/"
+                className="no-underline hover:text-purple-900 transition-colors duration-200"
+              >
+                Write with Us
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                className="no-underline hover:text-purple-900 transition-colors duration-200"
+              >
+                Contributors
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                className="no-underline hover:text-purple-900 transition-colors duration-200"
+              >
+                Join the Newsletter
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
     </section>

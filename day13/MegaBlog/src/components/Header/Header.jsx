@@ -37,27 +37,33 @@ function Header() {
   ];
 
   return (
-    <header className="py-3 shadow bg-gray-500">
+    <header className="sticky top-0 z-50 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-md">
       <Container>
-        <nav className="flex">
-          <div className="mr-4">
-            <Link to="/">
-              <Logo width="70px" />
-            </Link>
-          </div>
-          <ul className="flex ml-auto">
-            {navItems.map((item) =>
-              item.active ? (
-                <li key={item.name}>
-                  <button
-                    onClick={() => navigate(item.slug)}
-                    className="inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full"
-                  >
-                    {item.name}
-                  </button>
-                </li>
-              ) : null
+        <nav className="flex items-center justify-between py-4">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2">
+            <span className="text-3xl sm:text-4xl font-semibold tracking-wide hidden sm:inline font-playfair">
+              <span className="text-white">Post</span>
+              <span className="text-yellow-400">Script</span>
+            </span>
+          </Link>
+
+          {/* Navigation Items */}
+          <ul className="flex items-center space-x-6">
+            {navItems.map(
+              (item) =>
+                item.active && (
+                  <li key={item.name}>
+                    <button
+                      onClick={() => navigate(item.slug)}
+                      className="px-5 py-2 rounded-full hover:bg-white hover:text-indigo-700 transition duration-300 ease-in-out font-medium"
+                    >
+                      {item.name}
+                    </button>
+                  </li>
+                )
             )}
+
             {authStatus && (
               <li>
                 <LogoutBtn />

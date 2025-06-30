@@ -11,7 +11,6 @@ export default function Post() {
   const navigate = useNavigate();
 
   const userData = useSelector((state) => state.auth.userData);
-
   const isAuthor = post && userData ? post.userId === userData.$id : false;
 
   useEffect(() => {
@@ -33,32 +32,48 @@ export default function Post() {
   };
 
   return post ? (
-    <div className="py-8">
+    <div className="py-12 px-4 bg-gradient-to-br from-indigo-50 via-pink-50 to-white min-h-screen">
       <Container>
-        <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
+        {/* Featured Image */}
+        <div className="relative w-full max-w-3xl mx-auto mb-8 rounded-3xl overflow-hidden bg-gray-50 shadow-xl flex items-center justify-center max-h-64">
           <img
-            src={appwriteService.getFilePreview(post.featuredImage)}
+            src={appwriteService.getFileView(post.featuredImage)}
             alt={post.title}
-            className="rounded-xl"
+            className="w-full h-full object-contain"
           />
 
           {isAuthor && (
-            <div className="absolute right-6 top-6">
+            <div className="absolute top-4 right-4 flex gap-3 z-10">
               <Link to={`/edit-post/${post.$id}`}>
-                <Button bgColor="bg-green-500" className="mr-3">
+                <Button
+                  bgColor="bg-green-600"
+                  className="hover:bg-green-700 transition-all duration-200"
+                >
                   Edit
                 </Button>
               </Link>
-              <Button bgColor="bg-red-500" onClick={deletePost}>
+              <Button
+                bgColor="bg-red-600"
+                className="hover:bg-red-700 transition-all duration-200"
+                onClick={deletePost}
+              >
                 Delete
               </Button>
             </div>
           )}
         </div>
-        <div className="w-full mb-6">
-          <h1 className="text-2xl font-bold">{post.title}</h1>
+
+        {/* Title */}
+        <div className="max-w-4xl mx-auto mb-6 text-center">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-indigo-800 leading-tight">
+            {post.title}
+          </h1>
         </div>
-        <div className="browser-css">{parse(post.content)}</div>
+
+        {/* Content */}
+        <div className="prose prose-lg max-w-4xl mx-auto text-gray-800 prose-indigo prose-img:rounded-xl">
+          {parse(post.content)}
+        </div>
       </Container>
     </div>
   ) : null;

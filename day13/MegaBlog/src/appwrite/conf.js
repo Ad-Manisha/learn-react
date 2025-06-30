@@ -1,5 +1,5 @@
 import config from '../config/config.js';
-import {Client, ID, Databases, Storage, Query} from "appwrite";
+import {Client, ID, Databases, Storage, Query, Permission, Role} from "appwrite";
 import { Account } from 'appwrite';
 
 export class  Service{
@@ -22,7 +22,7 @@ export class  Service{
             return await this.databases.createDocument(
                 config.appwriteDatabaseId,
                 config.appwriteCollectionId,
-                slug,
+                ID.unique(),
                 {
                     title,
                     content,
@@ -32,7 +32,8 @@ export class  Service{
                 }
             );
         }catch(error){
-            console.log("Appwrite service :: createPost:: error", error);
+            console.log("Appwrite service :: createPost:: error", error.message);
+            return null;
         }
     }
 
@@ -89,7 +90,7 @@ export class  Service{
                 queries,
             )
         }catch(error){
-            console.log("Appwrite service :: getPosts:: error", error);
+            console.log("Appwrite service :: getPosts:: error", error.message);
             return false;
         }
 
@@ -102,7 +103,8 @@ export class  Service{
             return await this.bucket.createFile(
                 config.appwriteBucketId,
                 ID.unique(),
-                file
+                file,
+                [Permission.read(Role.any())] 
             )
         }catch(error){
             console.log("Appwrite service :: uploadFile:: error", error);
@@ -123,12 +125,13 @@ export class  Service{
         }
     }
 
-    getFilePreview(fileID){
-        return this.bucket.getFilePreview(
-            config.appwriteBucketId,
-            fileID
-        )
-    }
+    getFileView(fileID) {
+    return this.bucket.getFileView(
+        config.appwriteBucketId,
+        fileID
+    );
+}
+
 }
 
 const service = new Service();
